@@ -1,37 +1,30 @@
 import React from "react";
-import { useDictionaryContext } from "../context/Dictionary-context";
-import img3 from "../dictionary/icon-moon.svg";
+
+import { useAppSelector } from "../store";
 
 const Header = () => {
-  const { setDark, dark } = useDictionaryContext();
-  const toggleTheme = () => {
-    setDark((prevTheme) => !prevTheme);
-  };
+  //const navigate = useNavigate();
+  //const dispatch = useAppDispatch();
+  const { name, icon, darkMode } = useAppSelector((state) => state.home);
 
   return (
-    <>
-      <div className=" sm:ml-[16rem] lg:ml-[68rem] mb-8">
-        <div className="flex items-center gap-6">
-          <label
-            htmlFor="toggle"
-            className={`relative block h-[1.8rem] w-[3.4rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[1.3rem] before:w-[1.3rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
-              dark ? "before:translate-x-full" : "before:translate-x-0"
-            }`}
-          >
-            <input
-              type="checkbox"
-              id="toggle"
-              className="hidden"
-              checked={dark}
-              onChange={toggleTheme}
-            />
-            <div></div>
-          </label>
-
-          <img src={img3} alt="moon icon" />
-        </div>
+    <div className=" flex flex-row">
+      <div
+        className={`sm:gap-6 sm:mt-[0.1rem] flex items-center lg:gap-12 lg:-mt-16 ${
+          !name ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {" "}
+        <img src={icon} alt={name} className="h-[4rem] w-[4rem] p-2" />
+        <p
+          className={`sm:text-[1.8rem] text-[2.8rem] font-medium leading-[100%] transition-all duration-300 ${
+            darkMode ? "text-white" : "text-blue-700"
+          }`}
+        >
+          {name}
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

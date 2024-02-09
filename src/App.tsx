@@ -1,93 +1,99 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import { MagnifyingGlass } from "phosphor-react";
-import Error from "./components/Error";
-import { useDictionaryContext } from "./context/Dictionary-context";
-import WordHeading from "./components/WordHeading";
-import WordMeaning from "./components/Meaning";
-import Source from "./components/Source";
+import "./index.css";
+
+import React, { Suspense, lazy, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const Profile = lazy(() => import("./pages/Profile"));
+const Error = lazy(() => import("./pages/Error"));
+const QuizPage = lazy(() => import("./pages/QuizPage"));
+const Finished = lazy(() => import("./pages/Finished"));
+
+import Toggle from "./Components/Toggle";
+
+import { useAppDispatch, useAppSelector } from "./store";
+
+import darkImageDesktop from "./assets/images/pattern-background-desktop-dark.svg";
+import lightImageDesktop from "./assets/images/pattern-background-desktop-light.svg";
+import darkImageTablet from "./assets/images/pattern-background-tablet-dark.svg";
+import lightImageTablet from "./assets/images/pattern-background-tablet-light.svg";
+
+import { addScore } from "./store/QuizSlice";
 
 const App = () => {
-  const {
-    setInputValue,
-    dark,
-    dictionaryData,
-    isLoading,
-    setIsLoading,
-  } = useDictionaryContext();
-  const [searchInput, setSearchInput] = useState("");
-  const [empty, setEmpty] = useState(false);
-  const { meanings } = dictionaryData?.[0] || {};
-
-  const search = async () => {
-    if (searchInput.trim() === "") {
-      setEmpty(true);
-    } else {
-      setInputValue(searchInput);
-      setEmpty(false);
-      setIsLoading(true);
+  const { darkMode } = useAppSelector((state) => state.home);
+  //const { addScore } = useAppDispatch((state ) => state.quiz)
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    // Load scores from local storage on component mount (if any)
+    const storedScores = localStorage.getItem("UserScores");
+    if (storedScores) {
+      const parsedScores = JSON.parse(storedScores);
+      dispatch(addScore(parsedScores));
     }
-  };
+  }, [dispatch]);
 
   return (
-    <div className={` min-h-[100dvh] bg-${dark ? "black" : "white"} mt-2 sm: `}>
-      <Header />
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-row items-center justify-center">
-          <input
-            className={`lg:w-[35rem] sm:w-[23rem] sm:mr-16 rounded-lg bg-gray-300 pl-6 focus:border-2 h-16 focus:border-purple-500 focus:outline-none`}
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <MagnifyingGlass
-            size={28}
-            className="text-black lg:-ml-28 sm:-ml-24 "
-            onClick={search}
-          />
-          <br />
-        </div>
-        {empty && (
-          <p className=" text-xl text-gray-700 ">
-            {" "}
-            You have to input something chief
-          </p>
+    <>
+      <div className="w-full absolute inset-0">
+        {!darkMode && (
+          <>
+            <img
+              src={lightImageDesktop}
+              alt="Light Mode Desktop Background"
+              className="hidden lg:block w-full h-full object-cover transition-opacity duration-300 bg-black bg-opacity-20"
+            />
+            <img
+              src={lightImageTablet}
+              alt="Light Mode small Background"
+              className="block lg:hidden w-full h-full object-cover transition-opacity duration-300 bg-black bg-opacity-20"
+            />
+          </>
         )}
 
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : dictionaryData.length > 0 ? (
-          <div>
-            <WordHeading />
-            {meanings.map((meaning, index) => (
-              <WordMeaning
-                key={index}
-                partOfSpeech={meaning.partOfSpeech}
-                antonyms={meaning.antonyms}
-                definitions={meaning.definitions}
-                synonyms={meaning.synonyms}
-              />
-            ))}
-            <Source />
-          </div>
-        ) : dictionaryData.length === 0 ? (
-          <div className="flex flex-col items-center justify-center">
-            <h1
-              className={`text-2D2D2D pt-12 text-[1.4rem] font-bold transition-all duration-500 ${
-                dark ? "text-white" : "text-2D2D2D"
-              }`}
-            >
-              Welcome to Rahman's Dictionary
-            </h1>
-            <p className="pt-3 sm:px-12 lg:px-64 text-[1.2rem] text-gray-500">
-              Kindly input a word into the search field to discover its
-              comprehensive definitions.
-            </p>
-          </div>
-        ) : (
-          <Error />
+        {/* Dark mode images */}
+        {darkMode && (
+          <>
+            <img
+              src={darkImageDesktop}
+              alt="Dark Mode Desktop Background"
+              className="hidden lg:block w-full h-full object-cover transition-opacity duration-300 bg-black bg-opacity-90"
+            />
+            <img
+              src={darkImageTablet}
+              alt="Dark Mode Tablet Background"
+              className="block lg:hidden w-full h-full object-cover transition-opacity duration-300 bg-black bg-opacity-90"
+            />
+          </>
         )}
+        <div className="absolute inset-0 ">
+          <Router>
+            <Suspense
+              fallback={<div className="text-center text-black">Loading</div>}
+            >
+              <Routes>
+                <Route
+                  path="/*"
+                  element={
+                    <div>
+                      <Toggle />
+                      <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/quiz" element={<QuizPage />} />
+
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/finished" element={<Finished />} />
+                        <Route path="/*" element={<Error />} />
+                      </Routes>
+                    </div>
+                  }
+                />
+              </Routes>
+            </Suspense>
+          </Router>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,15 +1,16 @@
-import './index.css'
-import React from "react";
-import ReactDOM from "react-dom";
-import App  from "./App";
-import { DictionaryProvider } from './context/Dictionary-context';
+import './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import {Provider} from 'react-redux';
+import store from './store/index.tsx';
 
 
-ReactDOM.render(
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={ store }>
   <React.StrictMode>
-    <DictionaryProvider>
-      <App />
-    </DictionaryProvider>
+    <App />
   </React.StrictMode>,
-  document.getElementById("root")
-);
+  </Provider>
+)
