@@ -27,12 +27,13 @@ This is a Quiz app built with React, Typescript, Tailwind CSS and Redux, .
 
    git clone https://github.com/your-username/E-commerce-app.git
    cd E-commerce-app
-
+      ```
 2. **Install Dependencies:**
 
   ```bash
 
-  npm install 
+  npm install
+```
 
 3. **Set Up Firebase:**
 
@@ -44,6 +45,7 @@ This is a Quiz app built with React, Typescript, Tailwind CSS and Redux, .
   ```bash
 
    npm run dev
+```
 
 5. **Open in Browser:**
 
