@@ -50,7 +50,7 @@ const quizSlice = createSlice({
     setQuestions(state, action : PayloadAction<Question[]>) {
       state.questions = action.payload;
     },
-    resetQuiz() {
+    resetQuiz(state) {
       state.index = initialState.index;
       state.score = initialState.score;
       state.correctAnswer = initialState.correctAnswer;
