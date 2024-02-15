@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useAppSelector, useAppDispatch } from "../store";
+import { resetQuiz } from "../store/QuizSlice"
 
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const ProfilePage = () => {
   const { darkMode, name } = useAppSelector((state) => state.home);
 
   function back() {
+    dispatch(resetQuiz())
     navigate("/");
   }
   // Save scores to local storage whenever scores change
