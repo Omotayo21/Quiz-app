@@ -51,7 +51,11 @@ const quizSlice = createSlice({
       state.questions = action.payload;
     },
     resetQuiz() {
-      return initialState
+      state.index = initialState.index;
+      state.score = initialState.score;
+      state.correctAnswer = initialState.correctAnswer;
+      state.chosenAnswer = initialState.chosenAnswer;
+      state.questions = initialState.questions
     },
     addScore(state, action : PayloadAction<{ quiz: string; score: number }[]>) {
       state.scores = action.payload;
