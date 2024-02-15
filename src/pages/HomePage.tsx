@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { useAppDispatch, useAppSelector } from '../store';
 import { setQuizzes} from "../store/HomeSlice";
 import Topics from '../components/Topics';
 import { getQuizData } from '../QuizData';
-import { useLoaderData } from 'react-router-dom';
+
 
 type Quiz = {
   title : string;

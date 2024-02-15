@@ -10,8 +10,6 @@ import img4 from "../assets/images/icon-moon-dark.svg";
 import { User } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 
-
-
 const Toggle = () => {
   const { darkMode } = useAppSelector((state) => state.home);
   const [theme, setTheme] = useState<boolean>(false);

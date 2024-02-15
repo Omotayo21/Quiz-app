@@ -1,9 +1,8 @@
+import React, { useEffect } from "react";
 
-import React , {useEffect}from 'react';
+import { useAppSelector, useAppDispatch } from "../store";
 
-import { useAppSelector, useAppDispatch } from '../store';
-//import { addScore } from '../store/QuizSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -15,13 +14,15 @@ const ProfilePage = () => {
     navigate("/");
   }
   // Save scores to local storage whenever scores change
- useEffect(() => {
+  useEffect(() => {
     console.log(localStorage);
-    const serializedScores = JSON.stringify(scores.map((score) => ({ quiz: score.quiz, score: score.score })));
+    const serializedScores = JSON.stringify(
+      scores.map((score) => ({ quiz: score.quiz, score: score.score }))
+    );
     localStorage.setItem("UserScores", serializedScores);
   }, [scores]);
 
-/* useEffect(() => {
+  /* useEffect(() => {
    const storedScores = localStorage.getItem("UserScores");
    if (storedScores) {
      const parsedScores = JSON.parse(storedScores);
@@ -29,7 +30,6 @@ const ProfilePage = () => {
      console.log(parsedScores)
    }
  }, [dispatch]);*/
-
 
   return (
     <div className="container mx-auto mt-8 p-4">
@@ -120,4 +120,3 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;*/
-

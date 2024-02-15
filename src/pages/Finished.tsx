@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../store";
-import { useDispatch, useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
 import { resetQuiz } from "../store/QuizSlice";
 
