@@ -31,7 +31,7 @@ const Toggle = () => {
           )}
           <label
             htmlFor="toggle"
-            className={`relative block h-[2.8rem] w-[4.99rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[2rem] before:w-[2rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
+            className={`relative block h-[2.8rem] w-[5.1rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[2rem] before:w-[2rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
               theme ? "before:translate-x-full" : "before:translate-x-0"
             }`}
           >
