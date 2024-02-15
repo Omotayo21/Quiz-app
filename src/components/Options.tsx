@@ -55,7 +55,7 @@ const Options = ({ option, optionIndex, userAnswer, setIsAnswered } : OptionsPro
               ? "bg-green-700 text-white" 
               : userAnswer !== "" && option !== correctAnswer
               ? "bg-gray-100"
-              : "bg-gray-700 group-hover:bg-[#f6e7ff] group-hover:text-[#a729f5]"
+              : "bg-gray-700 text-white group-hover:bg-[#f6e7ff] group-hover:text-[#a729f5]"
           }`}
         >
           {optionLetter}
