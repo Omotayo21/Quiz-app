@@ -10,7 +10,7 @@ import img4 from "../assets/images/icon-moon-dark.svg";
 import { User } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 
-//import img2 from '../assets/12.png'
+
 
 const Toggle = () => {
   const { darkMode } = useAppSelector((state) => state.home);
@@ -33,7 +33,7 @@ const Toggle = () => {
           )}
           <label
             htmlFor="toggle"
-            className={`relative block h-[2.8rem] w-[4.8rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[2rem] before:w-[2rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
+            className={`relative block h-[2.8rem] w-[4.99rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[2rem] before:w-[2rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
               theme ? "before:translate-x-full" : "before:translate-x-0"
             }`}
           >

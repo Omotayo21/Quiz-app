@@ -2,7 +2,7 @@
 import React , {useEffect}from 'react';
 
 import { useAppSelector, useAppDispatch } from '../store';
-import { addScore } from '../store/QuizSlice';
+//import { addScore } from '../store/QuizSlice';
 import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
@@ -74,7 +74,7 @@ const ProfilePage = () => {
         </ul>
       </div>
       <button
-        className="w-96 bg-purple-900 text-center sm:-ml-12 lg:ml-[27rem] mt-12 rounded-[1.2rem] h-16 border-2 text-white border-white"
+        className="lg:w-96 sm:w-64 bg-purple-900 text-center sm:ml-4 lg:ml-[27rem] mt-12 rounded-[1.2rem] h-16 border-2 text-white border-white"
         onClick={back}
       >
         Back to home page

@@ -28,7 +28,7 @@ const Options = ({ option, optionIndex, userAnswer, setIsAnswered } : OptionsPro
   return (
     <div className="mt-2 w-1/3  max-w-md mb-2">
       <button
-        className={`group flex lg:w-[25rem] sm:w-[25rem] items-center lg:gap-12 rounded-[2.4rem] border-4 lg:px-2 lg:py-2 font-medium text-[1.2rem] transition-all duration-300 md:gap-8 sm:rounded-[1.2rem] sm:text-[1.2rem] sm:px-5 sm:py-3 lg:leading-[100%]
+        className={`group flex lg:w-[25rem] sm:w-[22rem] items-center lg:gap-12 rounded-[2.4rem] border-4 lg:px-1 lg:py-2 font-medium lg:text-[1.1rem] sm:text-[1.0rem] transition-all duration-300 md:gap-8 sm:rounded-[1.2rem] sm:px-5 sm:py-0.5 lg:leading-[100%]
         ${
           answerCorrect
             ? "cursor-not-allowed border-4 border-green-600"
@@ -44,7 +44,7 @@ const Options = ({ option, optionIndex, userAnswer, setIsAnswered } : OptionsPro
         onClick={chooseAnswer}
       >
         <span
-          className={`inline-block rounded-xl lg:p-2 sm:p-3 sm:mr-1 sm:-ml-1 text-sm transition-all duration-300  ${
+          className={`inline-block rounded-xl lg:p-2 lg:ml-4 sm:p-3 sm:mr-1 sm:-ml-1 text-sm transition-all duration-300  ${
             answerCorrect
               ? "bg-green-700 text-white"
               : wrongAnswer
@@ -52,7 +52,7 @@ const Options = ({ option, optionIndex, userAnswer, setIsAnswered } : OptionsPro
               : isOptionChosen
               ? "bg-purple-700 text-white"
               : userAnswer !== "" && option === correctAnswer
-              ? "bg-green-700 text-white" // Change here
+              ? "bg-green-700 text-white" 
               : userAnswer !== "" && option !== correctAnswer
               ? "bg-gray-100"
               : "bg-gray-700 group-hover:bg-[#f6e7ff] group-hover:text-[#a729f5]"
@@ -61,7 +61,7 @@ const Options = ({ option, optionIndex, userAnswer, setIsAnswered } : OptionsPro
           {optionLetter}
         </span>
         <span
-          className={`font-medium text-lg  ${
+          className={`font-medium lg:text-lg  ${
             darkMode ? "text-white" : "text-black"
           } `}
         >

@@ -85,7 +85,7 @@ const QuizPage = () => {
   return (
     <>
       {isPopUp && (
-        <div className=" flex flex-col items-center  w-96 h-48 bg-white mt-12 sm:ml-4 lg:ml-[30rem]">
+        <div className=" flex flex-col items-center  w-96 h-48 bg-white mt-12 sm:mr-8 lg:ml-[30rem]">
           <X size={20} onClick={close} className="ml-[20rem] mt-4" />
           <br />
           <p> Are you sure you want to quit quiz</p>
@@ -120,7 +120,7 @@ const QuizPage = () => {
             <Question key={index} question={questions[index]} />
           )}
 
-          <div className="lg:space-y-5 sm:space-y-5 flex flex-col  sm:mr-4 lg:mr-8 sm:ml-2 lg:mt-8">
+          <div className="lg:space-y-5 sm:space-y-5 flex flex-col  sm:mr-4 lg:mr-16 sm:ml-2 lg:mt-16">
             {questions[index]?.options?.map((item, optionIndex) => (
               <Options
                 key={item}
@@ -133,10 +133,10 @@ const QuizPage = () => {
           </div>
         </div>
         <CountdownTimer initialTime={300} />
-        <div className="sm:mt-8 lg:-mt-8 absolute right-4 ">
+        <div className="sm:mt-2 lg:-mt-8 absolute right-4 ">
           {userAnswer === "" && (
             <button
-              className="w-72 bg-purple-900 text-center rounded-[1.2rem] h-16 border-2 text-white border-white"
+              className="sm:w-64 lg:w-72 bg-purple-900 text-center rounded-[1.2rem] lg:h-16 sm:h-12 border-2 text-white border-white"
               onClick={submitAnswer}
             >
               Submit Answer
@@ -144,7 +144,7 @@ const QuizPage = () => {
           )}
           {userAnswer !== "" && index < questions.length - 1 ? (
             <button
-              className="w-72 bg-purple-900 text-center rounded-[1.2rem] h-16 border-2 text-white border-white"
+              className=" sm:w-64 lg:w-72 bg-purple-900 text-center rounded-[1.2rem] lg:h-16 sm:h-12 border-2 text-white border-white"
               onClick={nextQuestion}
             >
               Next Question
@@ -152,7 +152,7 @@ const QuizPage = () => {
           ) : (
             userAnswer !== "" && (
               <button
-                className="w-72 bg-purple-900 text-center rounded-[1.2rem] h-16 border-2 text-white border-white"
+                className=" sm:w-64 lg:w-72 bg-purple-900 text-center rounded-[1.2rem] h-16 border-2 text-white border-white"
                 onClick={finishedQuiz}
               >
                 Finished Quiz

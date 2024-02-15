@@ -13,16 +13,7 @@ function Finished() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const bgColors = {
-    HTML: "#FFF1E9",
-    CSS: "#E0FDEF",
-    JavaScript: "#EBF0FF",
-    Accessibility: "#F6E7FF",
-  };
 
-  const bgStyle = {
-    backgroundColor: bgColors[name],
-  };
 
   function playAgain() {
     dispatch(resetQuiz());
@@ -42,7 +33,7 @@ function Finished() {
     <div className=" sm:mt-8 lg:gap-12 sm:gap-16 flex sm:flex-col lg:flex-row ">
       <div>
         <h2
-          className={`sm:text-[4rem] lg:text-[4.2rem] font-light leading-[100%] transition-all duration-300 ${
+          className={`sm:text-[2rem] lg:text-[4.2rem] font-light leading-[100%] transition-all duration-300 ${
             darkMode ? "text-white" : "text-blue-800"
           }`}
         >
@@ -52,11 +43,11 @@ function Finished() {
       </div>
       <div>
         <div
-          className={`sm:rounded-[1.2rem] flex flex-col items-center gap-12  rounded-[2.4rem] p-9 transition-all duration-300 ${
+          className={`sm:rounded-[1.2rem] sm:h-72 lg:h-96 flex flex-col items-center gap-8  rounded-[2.4rem] lg:p-6 transition-all duration-300 ${
             darkMode ? "bg-blue-800" : "bg-white"
           }`}
         >
-          <div className="sm:gap-4 flex items-center lg:gap-12">
+          <div className="sm:gap-2 flex items-center lg:gap-8">
             <img
               src={icon}
               alt={name}
@@ -73,7 +64,7 @@ function Finished() {
           </div>
           <div className="flex flex-col items-center gap-6">
             <p
-              className={`sm:text-[8.8rem] text-[14.4rem] font-medium leading-[100%] transition-all duration-300 ${
+              className={`sm:text-[6.8rem] lg:text-[12.4rem] font-medium leading-[100%] transition-all duration-300 ${
                 darkMode ? "text-white" : "text-blue-800"
               }`}
             >
@@ -89,7 +80,7 @@ function Finished() {
           </div>
         </div>
         <button
-          className=" sm:text-[1.8rem] sm:p-7 sm:rounded-[1.2rem]  mt-10 w-96 rounded-[2.4rem] bg-purple-700 lg:p-[1.2rem] lg:text-[1.8rem] font-medium leading-[100%] text-white transition-all duration-300 sm:ml-6"
+          className=" sm:text-[1.4rem] sm:p-7 sm:rounded-[1.2rem]  lg:mt-10 sm:mt-4 lg:w-96 sm:w-64 rounded-[2.4rem] bg-purple-700 lg:p-[1.2rem] lg:text-[1.8rem] font-medium leading-[100%] text-white transition-all duration-300 sm:ml-16 lg:mr-16"
           onClick={playAgain}
         >
           Play Again
