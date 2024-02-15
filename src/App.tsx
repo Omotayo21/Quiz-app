@@ -9,7 +9,7 @@ const Error = lazy(() => import("./pages/Error"));
 const QuizPage = lazy(() => import("./pages/QuizPage"));
 const Finished = lazy(() => import("./pages/Finished"));
 
-import Toggle from "./Components/Toggle";
+import Toggle from "./components/Toggle";
 
 import { useAppDispatch, useAppSelector } from "./store";
 

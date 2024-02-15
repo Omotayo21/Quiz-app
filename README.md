@@ -1,21 +1,15 @@
-# E-commerce App
+# Quiz App
 
-This is a shopping app built with React, Tailwind CSS, Redux, Firebase, Material ui and Framer Motion. It provides authentication and real-time storage of products in a Firebase database.
+This is a Quiz app built with React, Typescript, Tailwind CSS and Redux, . 
 
 ## Features
 
-- **Authentication:**
-  - Users can sign up and log in securely.
-  - User sessions are managed using Firebase Authentication.
-
-- **Product Management:**
-  - Products are stored in a real-time database.
-  - CRUD operations for managing products.
-  - Notifications using react-toastify to notify you of your actions when you add or remove items from your cart.
+- **Quiz:**
+  - Users have 10 questons in each topic, and 5 minutes to answer each one.
+  - Users can view their scores in the leaderboard located in the profile page.
 
 - **User Interface:**
   - Responsive design using Tailwind CSS.
-  - Animated transitions with Framer Motion.
   - Notifications using react-toastify.
 
 ## Technologies Used
@@ -23,8 +17,7 @@ This is a shopping app built with React, Tailwind CSS, Redux, Firebase, Material
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Redux](https://redux.js.org/)
-- [Firebase](https://firebase.google.com/)
-- [Framer Motion](https://www.framer.com/motion/)
+
 
 
 ## Getting Started
@@ -34,12 +27,13 @@ This is a shopping app built with React, Tailwind CSS, Redux, Firebase, Material
 
    git clone https://github.com/your-username/E-commerce-app.git
    cd E-commerce-app
-
+      ```
 2. **Install Dependencies:**
 
   ```bash
 
-  npm install 
+  npm install
+```
 
 3. **Set Up Firebase:**
 
@@ -51,6 +45,7 @@ This is a shopping app built with React, Tailwind CSS, Redux, Firebase, Material
   ```bash
 
    npm run dev
+```
 
 5. **Open in Browser:**
 
@@ -59,7 +54,7 @@ Open http://localhost:3000 in your browser.
 ## Folder Structure
 src/: Source code of the application.
 components/: Reusable React components.
-config/: Configuration files (Firebase config, etc.).
+
 pages/: Top-level components representing pages.
 store/: Redux store setup.
 

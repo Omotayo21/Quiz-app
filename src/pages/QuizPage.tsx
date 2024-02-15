@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../store';
-import Question from '../Components/Questions';
+import Question from '../components/Questions';
 import { useDispatch, useSelector } from 'react-redux';
-import Options from '../Components/Options';
+import Options from '../components/Options';
 import { resetQuiz } from '../store/QuizSlice';
-import CountdownTimer from '../Components/CountdownTimer';
+import CountdownTimer from '../components/CountdownTimer';
 import {
   setChosenAnswer,
   setCorrectAnswer,
