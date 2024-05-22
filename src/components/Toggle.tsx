@@ -31,9 +31,10 @@ const Toggle = () => {
           )}
           <label
             htmlFor="toggle"
-            className={`relative block h-[1.8rem] w-[3.4rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[3px] before:h-[2rem] before:w-[2rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
+            className={`relative block h-[1.8rem] w-[3.4rem] cursor-pointer rounded-full bg-purple-600 before:absolute before:left-2 before:top-[4px] before:h-[1.3rem] before:w-[1.3rem] before:rounded-full before:bg-white before:transition-all before:duration-300 ${
               theme ? "before:translate-x-full" : "before:translate-x-0"
             }`}
+         
           >
             <input
               type="checkbox"
